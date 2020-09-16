@@ -211,6 +211,9 @@ The code that performs these operations is in [get_psix_shares.py](get_psix_shar
 
 
 
+### Calibrating Revenue Share of Final Demand
 
+The final matrix to calibrate is ![\mathbf{\Psi}^{f}
+](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPsi%7D%5E%7Bf%7D%0A) which contains the share of total revenue from household spending. The method for computing entries in this matrix is as follows. 
 
 
