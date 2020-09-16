@@ -31,6 +31,7 @@ def calibrate():
     '''
 
     pd.options.mode.chained_assignment = None 
+    
 
     # Extract the columns with the Chinese data
     chn_cols = wiod_2014.columns[(wiod_2014=='CHN').any(axis=0)]
