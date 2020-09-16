@@ -18,7 +18,7 @@
 
 ## Running the Model
 
-To execute the model, you will need to have access to Python 3 and the following packages:
+To execute the model, you will need to have access to ``Python 3``` and the following packages:
 
 1. ``numpy``
 2. ``pandas``
