@@ -11,6 +11,9 @@
   - [x] Calibrate ![\mathbf{\Psi}^{x}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPsi%7D%5E%7Bx%7D) (Revenue share of intermediate inputs)
   - [x] Calibrate ![\mathbf{\Psi}^{f}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPsi%7D%5E%7Bf%7D) (Revenue share of final demand)
 - [ ] Run and anlayze prototype simulations
+  - [ ] Solve the model for heterogeneous factor shares
+  - [ ] Solve the model for industry-specific labor supply shocks (as opposed to occupation specific)
+  - [ ] Calibrate labor supply shocks 
 - [ ] Model improvements and extensions
 
 
@@ -157,5 +160,45 @@ If the code runs successfully, you should see a few printed statements:
 3. ```Successfully calibrated factor shares!``` --> Factor shares were calibrated appropriately. 
 
 and the factor shares vectors will be return for each region, i.e. ![\mathbf{\alpha}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5Calpha%7D) and ![\mathbf{\eta}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5Ceta%7D) will be returned for China, ROW, and the USA. The vectors are given by ```chn_alpha_j```, ```row_alpha_j```, ```usa_alpha_j```, ```chn_eta_j```, ```row_eta_j```, and ```usa_eta_j```. It should be noted that we do not average these directly within the code. 
+
+## Market Clearing Condition
+
+HLP use a first-order approximation to the market clearing condition to solve the model in closed-form. In matrix notation, the market clearing condition based on the first-order approximation is given by 
+
+![\begin{align*}
+\ln \mathbf{P}_t + \ln \mathbf{Y}_t =& \left(\mathbf{\Psi}^{f}\mathbf{\Upsilon}+ \mathbf{\Psi}^{x}\right)\left( \ln \mathbf{P}_t + \ln \mathbf{Y}_t \right) + \left(1-\rho\right)\left( \diag(\mathbf{\Psi}^{f}\mathbf{1}) - \mathbf{\Psi}^{f}\mathbf{\Pi}^{f}\right)\ln \mathbf{P}_{t}\\
+&+\left(1-\epsilon\right)\left(\diag(\mathbf{\Psi}^{x}\mathbf{1} )- \mathbf{\Psi}^{x} \mathbf{\Pi}^{x}\right)\ln \mathbf{P}_t
+\end{align*}
+](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cbegin%7Balign%2A%7D%0A%5Cln+%5Cmathbf%7BP%7D_t+%2B+%5Cln+%5Cmathbf%7BY%7D_t+%3D%26+%5Cleft%28%5Cmathbf%7B%5CPsi%7D%5E%7Bf%7D%5Cmathbf%7B%5CUpsilon%7D%2B+%5Cmathbf%7B%5CPsi%7D%5E%7Bx%7D%5Cright%29%5Cleft%28+%5Cln+%5Cmathbf%7BP%7D_t+%2B+%5Cln+%5Cmathbf%7BY%7D_t+%5Cright%29+%2B+%5Cleft%281-%5Crho%5Cright%29%5Cleft%28+%5Cdiag%28%5Cmathbf%7B%5CPsi%7D%5E%7Bf%7D%5Cmathbf%7B1%7D%29+-+%5Cmathbf%7B%5CPsi%7D%5E%7Bf%7D%5Cmathbf%7B%5CPi%7D%5E%7Bf%7D%5Cright%29%5Cln+%5Cmathbf%7BP%7D_%7Bt%7D%5C%5C%0A%26%2B%5Cleft%281-%5Cepsilon%5Cright%29%5Cleft%28%5Cdiag%28%5Cmathbf%7B%5CPsi%7D%5E%7Bx%7D%5Cmathbf%7B1%7D+%29-+%5Cmathbf%7B%5CPsi%7D%5E%7Bx%7D+%5Cmathbf%7B%5CPi%7D%5E%7Bx%7D%5Cright%29%5Cln+%5Cmathbf%7BP%7D_t%0A%5Cend%7Balign%2A%7D%0A)
+
+Hence, we need to calibrate ![\mathbf{\Upsilon}
+](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CUpsilon%7D%0A), ![\mathbf{\Psi}^{x}
+](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPsi%7D%5E%7Bx%7D%0A), and ![\mathbf{\Psi}^{f}
+](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPsi%7D%5E%7Bf%7D%0A) to solve the model. The following sections detail the approach to calibrating these matrices. 
+
+### Calibrating Value Added Shares
+
+In the market clearing condition, the matrix ![\mathbf{\Upsilon}
+](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CUpsilon%7D%0A) stores the value added shares of each country-sector to a country's total GDP. In the HLP model, the value added of an industry can be computed as 
+
+![\eta_{i}P_{mi}Y_{mi}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Ceta_%7Bi%7DP_%7Bmi%7DY_%7Bmi%7D)
+
+Calibrating these parameters is relatively straightforward. First, we compute value added from each industry. Here we deviate slightly from HLP in order to match the data. We compute value added of industry ![(m,i)](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%28m%2Ci%29) as 
+
+![\eta_{mi}P_{mi}Y_{mi}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Ceta_%7Bmi%7DP_%7Bmi%7DY_%7Bmi%7D)
+
+Second, we compute GDP for each country. For country ![m](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+m), we sum up the value added of all industries in the country. That is, we compute 
+
+![GDP_{m} = P_{n}\mathcal{F}_{n} =  \sum_{i} \eta_{mi}P_{mi}Y_{mi}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+GDP_%7Bm%7D+%3D+P_%7Bn%7D%5Cmathcal%7BF%7D_%7Bn%7D+%3D++%5Csum_%7Bi%7D+%5Ceta_%7Bmi%7DP_%7Bmi%7DY_%7Bmi%7D)
+
+Third, we compute entries in ![\mathbf{\Upsilon}
+](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CUpsilon%7D%0A) as follows
+
+![\mathbf{\Upsilon}_{n,mi} = \frac{\eta_{mi}P_{mi}Y_{mi}}{P_{n}\mathcal{F}_{n}}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CUpsilon%7D_%7Bn%2Cmi%7D+%3D+%5Cfrac%7B%5Ceta_%7Bmi%7DP_%7Bmi%7DY_%7Bmi%7D%7D%7BP_%7Bn%7D%5Cmathcal%7BF%7D_%7Bn%7D%7D)
+
+for when ![n=m](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+n%3Dm) and 0 otherwise. 
+
+
+
 
 
