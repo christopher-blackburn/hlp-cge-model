@@ -51,8 +51,42 @@ The code for computing household expenditure shares is called [get_hh_shares.py]
 
 1. Download the 2014 WIOT from the WIOD website
 2. Extract household spending components by each region
-3. Role up expenditures for ROW (sum the columns)
+3. Roll up expenditures for ROW (sum the columns)
 4. Sum the row elements to make sure the matrix is NJ x N, where N=3 and J=56
 5. Extract the matrix elements and compute the final expenditure share matrix
 
 If run successfully, the code should should generate the statement ```Successfully computed the expenditure share matrix!``` and return the matrix ```Pi_f``` that corresponds to the ![\mathbf{\Pi}^{f}](https://render.githubusercontent.com/render/math?math=%5Ctextstyle+%5Cmathbf%7B%5CPi%7D%5E%7Bf%7D) matrix from HLP (2020). 
+
+## Firms
+
+With the household side of the economy calibrated, we turn our attention to the production side of the economy. Each industry $nj$ is populated by a representative firm with access to CRS production function given by
+
+$$Y_{nj} = \left(K_{nj}^{\alpha_j}H_{nj}^{1-\alpha_j}\right)^{\eta_j}X_{nj}^{1-\eta_j}$$
+
+where intermediate input usage is a composite of intermediates inputs sourced from other industries. The composite intermediate is given by
+
+$$X_{nj} = \left(\sum_{i} \sum_{m}\mu_{mi,nj}^{\frac{1}{\epsilon}}X_{mi,nj}^{\frac{\epsilon-1}{\epsilon}}\right)^{\frac{\epsilon}{\epsilon-1}}$$
+
+One important assumption that might be relevant for future interations is that an input's price is given by
+
+$$P_{mi,nj} = \tau_{mi,n}P_{mi}$$
+
+where $\tau_{mi,n}$ is an iceberg trade cost that is constant and exogenous. The constant and exogenous assumption might be something we want to consider adapting in future iterations of the model. 
+
+Under cost minimization, we have the share of intermediates sourced from $mi$ in total intermediate spending in $nj$ is given by 
+
+$$\pi_{mi,nj}^{x} = \frac{\mu_{mi,nj} P_{mi,nj}^{1-\epsilon}}{\sum_{k,l}\mu_{kl,nj} P_{kl,nj}^{1-\epsilon}}$$
+
+With this result, we are now ready to turn to the next calibrated paramter of the model. 
+
+### Calibrating Intermediate Input Shares
+
+Intermediate input shares are calibrated using the 2014 WIOT. To compute a country-sector $mi$'s share of intermediate spending in $nj$, we start by definition the $NJ \times NJ$ matrix of intermediate transactions as $\mathbf{X}$. We first need to compute total intermediate spending for each country-industry pair. Total intermediate spending is computed as 
+
+$$\mathbf{X}_{total} = \mathbf{\iota}\mathbf{X}$$
+
+With this, we perform a similar operation as before and calibrate the intermediate shares matrix to the 2014 WIOT as follows
+
+$$\mathbf{\Pi}^{x} = \left[\mathbf{X}diag\left(\mathbf{X}_{total}\right)\right]^{'}$$
+
+We note the transpose here is actually important. The entries in $\mathbf{X}$ correspond to intermediate payments from the column country-sector to the row country-sector. In contrast, the intermediate shares matrix in HLP uses the opposite convention.  Hence, after computing the shares matrix, we need to transpose the matrix to make them consistent.
