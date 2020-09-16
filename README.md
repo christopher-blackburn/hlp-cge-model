@@ -1,6 +1,21 @@
 # bea-economic-model
 ### Updated: 09/16/2020
 
+## Current Tasks
+
+- [x] Calibrate the Model to WIOD for 3 regions and 56 sectors
+  - [x] Calibrate ![\mathbf{\Pi}^{f}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPi%7D%5E%7Bf%7D) (household expenditure shares) 
+  - [x] Calibrate ![\mathbf{\Pi}^{x}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPi%7D%5E%7Bx%7D) (intermediate input expenditure shares)
+  - [x] Calibrate ![\mathbf{\alpha}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5Calpha%7D) and ![\mathbf{\eta}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5Ceta%7D) (factor cost shares) 
+  - [x] Calibrate ![\mathbf{\Upsilon}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CUpsilon%7D) (value added shares)
+  - [x] Calibrate ![\mathbf{\Psi}^{x}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPsi%7D%5E%7Bx%7D) (Revenue share of intermediate inputs)
+  - [x] Calibrate ![\mathbf{\Psi}^{f}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPsi%7D%5E%7Bf%7D) (Revenue share of final demand)
+- [ ] Run and anlayze prototype simulations
+- [ ] Model improvements and extensions
+
+
+## About
+
 This project contains the code for constructing and using the BEA economic model. The model is based on the paper by Huo, Levchenko, and Pandalai-Nayar (2020) and adapted to leverage the internal data source of the Bureau of Economic Analysis. 
 
 
