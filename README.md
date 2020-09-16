@@ -214,6 +214,14 @@ The code that performs these operations is in [get_psix_shares.py](get_psix_shar
 ### Calibrating Revenue Share of Final Demand
 
 The final matrix to calibrate is ![\mathbf{\Psi}^{f}
-](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPsi%7D%5E%7Bf%7D%0A) which contains the share of total revenue from household spending. The method for computing entries in this matrix is as follows. 
+](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPsi%7D%5E%7Bf%7D%0A) which contains the share of total revenue from household spending. The method for computing entries in this matrix is straightforward. First, compute gross output for a country-sector as ![P_{nj}Y_{nj}
+](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+P_%7Bmi%7DY_%7Bmi%7D%0A). Second, compute household spending from a country on this industry as ![\pi_{m,nj}^{f}P_{m}\mathcal{F}_{m}
+](https://render.githubusercontent.com/render/math?math=%5Ctextstyle+%5Cpi_%7Bm%2Cnj%7D%5E%7Bf%7DP_%7Bm%7D%5Cmathcal%7BF%7D_%7Bm%7D%0A). 
 
+Hence, the entries in ![\mathbf{\Psi}^{f}
+](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPsi%7D%5E%7Bf%7D%0A) are given by
 
+![\mathbf{\Psi}_{nj,m}^{f} = \frac{\pi_{m,nj}^{f}P_{m}\mathcal{F}_{m}}{P_{nj}Y_{nj}}
+](https://render.githubusercontent.com/render/math?math=%5Ctextstyle+%5Cmathbf%7B%5CPsi%7D_%7Bnj%2Cm%7D%5E%7Bf%7D+%3D+%5Cfrac%7B%5Cpi_%7Bm%2Cnj%7D%5E%7Bf%7DP_%7Bm%7D%5Cmathcal%7BF%7D_%7Bm%7D%7D%7BP_%7Bnj%7DY_%7Bnj%7D%7D%0A)
+
+The code for computing this matrix is in [get_psif_shares.py](get_psif_shares.py). If successfully calibrated, you should see a statement ```Successfully calibrated final spending revenue shares!```. 
