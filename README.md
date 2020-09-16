@@ -35,9 +35,9 @@ We now turn to the first major result of the paper that requires calibration. Th
 
 ### Calibrating Household Expenditure Shares
 
-The first major component of the model that requires calibration is the expenditure share of the representative households. According to HLP, the dataset used to calibrate the final use parameters is the WIOD. The following code segment calibrates these parameters using the WIOD. According to the download portion of the website, the input-ouput tables are in current prices, denoted in millions of dollars. The database covers 28 EU countries and 15 other major countries in the world for the period 2000-2014. However, for the purpose of this exercise we only need to recover the 2014 input-output table. As a check on our code, there are 43 countries (and ROW component) in the data and each country has 56 sectors. This implies the country-sector vector length is $NJ = 44 \times 56 = 2,464$. 
+The first major component of the model that requires calibration is the expenditure share of the representative households. According to HLP, the dataset used to calibrate the final use parameters is the WIOD. The following code segment calibrates these parameters using the WIOD. According to the download portion of the website, the input-ouput tables are in current prices, denoted in millions of dollars. The database covers 28 EU countries and 15 other major countries in the world for the period 2000-2014. However, for the purpose of this exercise we only need to recover the 2014 input-output table. As a check on our code, there are 43 countries (and ROW component) in the data and each country has 56 sectors. This implies the country-sector vector length is ![NJ = 44 \times 56 = 2,464](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+NJ+%3D+44+%5Ctimes+56+%3D+2%2C464). 
 
-In essence, the following code performs these operations. In the WIOD data, the expenditure by the representative household $n$ on country-sector $mj$ is given by the ![NJ \times N](https://render.githubusercontent.com/render/math?math=%5Ctextstyle+NJ+%5Ctimes+N) vector ![\mathbf{F}](https://render.githubusercontent.com/render/math?math=%5Ctextstyle+%5Cmathbf%7BF%7D). To compute expenditure shares, we first compute total household expenditure in ![N](https://render.githubusercontent.com/render/math?math=%5Ctextstyle+N) to compute this we use 
+In essence, the following code performs these operations. In the WIOD data, the expenditure by the representative household ![n](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+n) on country-sector ![mj](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+mj) is given by the ![NJ \times N](https://render.githubusercontent.com/render/math?math=%5Ctextstyle+NJ+%5Ctimes+N) vector ![\mathbf{F}](https://render.githubusercontent.com/render/math?math=%5Ctextstyle+%5Cmathbf%7BF%7D). To compute expenditure shares, we first compute total household expenditure in ![N](https://render.githubusercontent.com/render/math?math=%5Ctextstyle+N) to compute this we use 
 
 ![\mathbf{F}_{total} = \mathbf{\iota}\mathbf{F}](https://render.githubusercontent.com/render/math?math=%5Ctextstyle+%5Cmathbf%7BF%7D_%7Btotal%7D+%3D+%5Cmathbf%7B%5Ciota%7D%5Cmathbf%7BF%7D)
 
@@ -59,34 +59,34 @@ If run successfully, the code should should generate the statement ```Successful
 
 ## Firms
 
-With the household side of the economy calibrated, we turn our attention to the production side of the economy. Each industry $nj$ is populated by a representative firm with access to CRS production function given by
+With the household side of the economy calibrated, we turn our attention to the production side of the economy. Each industry ![nj](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+nj) is populated by a representative firm with access to CRS production function given by
 
-$$Y_{nj} = \left(K_{nj}^{\alpha_j}H_{nj}^{1-\alpha_j}\right)^{\eta_j}X_{nj}^{1-\eta_j}$$
+![Y_{nj} = \left(K_{nj}^{\alpha_j}H_{nj}^{1-\alpha_j}\right)^{\eta_j}X_{nj}^{1-\eta_j}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+Y_%7Bnj%7D+%3D+%5Cleft%28K_%7Bnj%7D%5E%7B%5Calpha_j%7DH_%7Bnj%7D%5E%7B1-%5Calpha_j%7D%5Cright%29%5E%7B%5Ceta_j%7DX_%7Bnj%7D%5E%7B1-%5Ceta_j%7D)
 
 where intermediate input usage is a composite of intermediates inputs sourced from other industries. The composite intermediate is given by
 
-$$X_{nj} = \left(\sum_{i} \sum_{m}\mu_{mi,nj}^{\frac{1}{\epsilon}}X_{mi,nj}^{\frac{\epsilon-1}{\epsilon}}\right)^{\frac{\epsilon}{\epsilon-1}}$$
+![X_{nj} = \left(\sum_{i} \sum_{m}\mu_{mi,nj}^{\frac{1}{\epsilon}}X_{mi,nj}^{\frac{\epsilon-1}{\epsilon}}\right)^{\frac{\epsilon}{\epsilon-1}}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+X_%7Bnj%7D+%3D+%5Cleft%28%5Csum_%7Bi%7D+%5Csum_%7Bm%7D%5Cmu_%7Bmi%2Cnj%7D%5E%7B%5Cfrac%7B1%7D%7B%5Cepsilon%7D%7DX_%7Bmi%2Cnj%7D%5E%7B%5Cfrac%7B%5Cepsilon-1%7D%7B%5Cepsilon%7D%7D%5Cright%29%5E%7B%5Cfrac%7B%5Cepsilon%7D%7B%5Cepsilon-1%7D%7D)
 
 One important assumption that might be relevant for future interations is that an input's price is given by
 
-$$P_{mi,nj} = \tau_{mi,n}P_{mi}$$
+![P_{mi,nj} = \tau_{mi,n}P_{mi}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+P_%7Bmi%2Cnj%7D+%3D+%5Ctau_%7Bmi%2Cn%7DP_%7Bmi%7D)
 
-where $\tau_{mi,n}$ is an iceberg trade cost that is constant and exogenous. The constant and exogenous assumption might be something we want to consider adapting in future iterations of the model. 
+where ![\tau_{mi,n}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Ctau_%7Bmi%2Cn%7D) is an iceberg trade cost that is constant and exogenous. The constant and exogenous assumption might be something we want to consider adapting in future iterations of the model. 
 
 Under cost minimization, we have the share of intermediates sourced from $mi$ in total intermediate spending in $nj$ is given by 
 
-$$\pi_{mi,nj}^{x} = \frac{\mu_{mi,nj} P_{mi,nj}^{1-\epsilon}}{\sum_{k,l}\mu_{kl,nj} P_{kl,nj}^{1-\epsilon}}$$
+![\pi_{mi,nj}^{x} = \frac{\mu_{mi,nj} P_{mi,nj}^{1-\epsilon}}{\sum_{k,l}\mu_{kl,nj} P_{kl,nj}^{1-\epsilon}}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cpi_%7Bmi%2Cnj%7D%5E%7Bx%7D+%3D+%5Cfrac%7B%5Cmu_%7Bmi%2Cnj%7D+P_%7Bmi%2Cnj%7D%5E%7B1-%5Cepsilon%7D%7D%7B%5Csum_%7Bk%2Cl%7D%5Cmu_%7Bkl%2Cnj%7D+P_%7Bkl%2Cnj%7D%5E%7B1-%5Cepsilon%7D%7D)
 
-With this result, we are now ready to turn to the next calibrated paramter of the model. 
+With this result, we are now ready to turn to the next calibrated parameter of the model. 
 
 ### Calibrating Intermediate Input Shares
 
-Intermediate input shares are calibrated using the 2014 WIOT. To compute a country-sector $mi$'s share of intermediate spending in $nj$, we start by definition the $NJ \times NJ$ matrix of intermediate transactions as $\mathbf{X}$. We first need to compute total intermediate spending for each country-industry pair. Total intermediate spending is computed as 
+Intermediate input shares are calibrated using the 2014 WIOT. To compute a country-sector ![mi](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+mi)'s share of intermediate spending in ![nj](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+nj), we start by defining the ![NJ \times NJ](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+NJ+%5Ctimes+NJ) matrix of intermediate transactions as ![\mathbf{X}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7BX%7D). We first need to compute total intermediate spending for each country-industry pair. Total intermediate spending is computed as 
 
-$$\mathbf{X}_{total} = \mathbf{\iota}\mathbf{X}$$
+![\mathbf{X}_{total} = \mathbf{\iota}\mathbf{X}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7BX%7D_%7Btotal%7D+%3D+%5Cmathbf%7B%5Ciota%7D%5Cmathbf%7BX%7D)
 
 With this, we perform a similar operation as before and calibrate the intermediate shares matrix to the 2014 WIOT as follows
 
-$$\mathbf{\Pi}^{x} = \left[\mathbf{X}diag\left(\mathbf{X}_{total}\right)\right]^{'}$$
+![\mathbf{\Pi}^{x} = \left[\mathbf{X}diag\left(\mathbf{X}_{total}\right)\right]^{'}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPi%7D%5E%7Bx%7D+%3D+%5Cleft%5B%5Cmathbf%7BX%7Ddiag%5Cleft%28%5Cmathbf%7BX%7D_%7Btotal%7D%5Cright%29%5Cright%5D%5E%7B%27%7D)
 
-We note the transpose here is actually important. The entries in $\mathbf{X}$ correspond to intermediate payments from the column country-sector to the row country-sector. In contrast, the intermediate shares matrix in HLP uses the opposite convention.  Hence, after computing the shares matrix, we need to transpose the matrix to make them consistent.
+We note the transpose here is actually important. The entries in ![\mathbf{X}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7BX%7D) correspond to intermediate payments from the column country-sector to the row country-sector. In contrast, the intermediate shares matrix in HLP uses the opposite convention.  Hence, after computing the shares matrix, we need to transpose the matrix to make them consistent.
