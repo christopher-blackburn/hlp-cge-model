@@ -74,7 +74,7 @@ row_upsilon = np.pad(row_va2014['upsilon'].values,(56,56),'constant').reshape((1
 usa_upsilon = np.pad(usa_va2014['upsilon'].values,(2*56,0),'constant').reshape((1,168))
 
 # Create the Upsilon matrix 
-upsilon = np.concatenate([chn_upsilon,row_upsilon,usa_upsilon])
+Upsilon = np.concatenate([chn_upsilon,row_upsilon,usa_upsilon])
 
 
 print('Successfully calibrated the value added shares matrix!')
