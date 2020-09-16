@@ -6,7 +6,7 @@ This project contains the code for constructing and using the BEA economic model
 
 ## Introduction 
 
-This is a technical document that describes the data and method for estimating the BEA economic model. The model is based off of Huo, Levchenko, and Pandalai-Nayar's (2020) "International Comovement in the Global Production Network." For the rest of the document, we will refer to this paper as HLP. As we proceed with the document, we highlight the components of the model and the data that goes along with these various components. 
+This is a technical document that describes the data and method for estimating the BEA economic model. The model is based off of Huo, Levchenko, and Pandalai-Nayar's (2020) "International Comovement in the Global Production Network." For the rest of the document, we will refer to this paper as HLP. As we proceed with the document, we highlight the components of the model and the data that goes along with these various components. We note that all equations were generated using this [website](https://tex-image-link-generator.herokuapp.com/). 
 
 The technical document proceeds as follows. The first section highlights the consumption side of the economy. We present the economic environment as given in HLP and the corresponding data requirements. For the initial version of this document, in which there will more than likely be several iterations, we start by presenting the data used as given in HLP.
 
@@ -98,3 +98,35 @@ The code for constructing the intermediate input shares matrix is given in [get_
 3. Compute the intermediate input shares matrix
 
 If the code runs successfully, you should see a statement print ```Successfully computed the expenditure share matrix!``` and the matrix ```Pi_x``` returned. 
+
+### Calibrating Factor Shares
+
+With the intermediate shares matrix calibrated, we next calibrate the factor shares in the Cobb-Douglas top-level production function. For this calibration, HLP use the KLEMS dataset. One might wonder why HLP decide to use KLEMS rather than WIOD. For the BEA model, we instead use the WIOD socioeconomic accounts (SEA) to calibrate the factor shares. First, the SEA's industry definitions match those in the WIOD. Generally, the KLEMS datasets do not match on a one-to-one basis. Second, the regional coverage of the SEA's are complete, whereas the KLEMS database does not cover all the regions included in the WIOD. 
+
+Before discussing the calibration, we first introduce the theory that motivates the calibration. If you are familiar with the Cobb-Douglas production function and its parameters, you can move on. Otherwise, the following derivations may prove to be insightful. The top-level production function for a firm is Cobb-Douglas and given by
+
+![Y_{nj} = \left(K_{nj}^{\alpha_j}H_{nj}^{1-\alpha_j}\right)^{\eta_j}X_{nj}^{1-\eta_j}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+Y_%7Bnj%7D+%3D+%5Cleft%28K_%7Bnj%7D%5E%7B%5Calpha_j%7DH_%7Bnj%7D%5E%7B1-%5Calpha_j%7D%5Cright%29%5E%7B%5Ceta_j%7DX_%7Bnj%7D%5E%7B1-%5Ceta_j%7D)
+
+We should note this equation is taken directly from HLP. One important detail about this equation is that the the parameters on the production function are only indexed by industry ![j](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+j) and not by the country-industry pair ![nj](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+nj). After speaking with Zhen Huo, the authors deployed this assumption to reduce noise in the data. However, he claimed the model can be solved with the heterogeneity across countries. To understand each parameter, let's compute the first order conditions:
+
+1. The first-order condition with respect to capital implies
+
+![\eta_j \alpha_j = \frac{r K_{nj}}{P_{nj}Y_{nj}} = \frac{KC_{nj}}{GO_{nj}}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Ceta_j+%5Calpha_j+%3D+%5Cfrac%7Br+K_%7Bnj%7D%7D%7BP_%7Bnj%7DY_%7Bnj%7D%7D+%3D+%5Cfrac%7BKC_%7Bnj%7D%7D%7BGO_%7Bnj%7D%7D)
+
+2. The first-order condition with respect to labor implies 
+
+![\eta_j \left(1-\alpha_j\right) = \frac{w H_{nj}}{P_{nj}Y_{nj}} = \frac{LC_{nj}}{GO_{nj}}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Ceta_j+%5Cleft%281-%5Calpha_j%5Cright%29+%3D+%5Cfrac%7Bw+H_%7Bnj%7D%7D%7BP_%7Bnj%7DY_%7Bnj%7D%7D+%3D+%5Cfrac%7BLC_%7Bnj%7D%7D%7BGO_%7Bnj%7D%7D)
+
+3. Combining (1) and (2) implies 
+
+![\eta_j = \frac{r K_{nj} + w H_{nj}}{P_{nj}Y_{nj}}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Ceta_j+%3D+%5Cfrac%7Br+K_%7Bnj%7D+%2B+w+H_%7Bnj%7D%7D%7BP_%7Bnj%7DY_%7Bnj%7D%7D)
+
+4. Combining (3) with (1) implies 
+
+![\alpha_j = \frac{r K_{nj}}{r K_{nj} + w H_{nj}}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Calpha_j+%3D+%5Cfrac%7Br+K_%7Bnj%7D%7D%7Br+K_%7Bnj%7D+%2B+w+H_%7Bnj%7D%7D)
+
+and 
+
+![1-\alpha_j = \frac{w L_{nj}}{r K_{nj} + w H_{nj}}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+1-%5Calpha_j+%3D+%5Cfrac%7Bw+L_%7Bnj%7D%7D%7Br+K_%7Bnj%7D+%2B+w+H_%7Bnj%7D%7D)
+
+
