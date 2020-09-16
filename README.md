@@ -47,4 +47,12 @@ where ![\mathbf{\iota}](https://render.githubusercontent.com/render/math?math=%5
 
 We note that this procedure is general for the ![N](https://render.githubusercontent.com/render/math?math=%5Ctextstyle+N) country case. However, we make some adjustments because we role up these expenditures into a rest of the world component. 
 
-The code for computing household expenditure shares is called [get_hh_shares.py](get_hh_shares.py)
+The code for computing household expenditure shares is called [get_hh_shares.py](get_hh_shares.py). The code (generally) proceeds as follows:
+
+1. Download the 2014 WIOT from the WIOD website
+2. Extract household spending components by each region
+3. Role up expenditures for ROW (sum the columns)
+4. Sum the row elements to make sure the matrix is NJ x N, where N=3 and J=56
+5. Extract the matrix elements and compute the final expenditure share matrix
+
+If run successfully, the code should should generate the statement ```Successfully computed the expenditure share matrix!``` and return the matrix ```Pi_f``` that corresponds to the ![\mathbf{\Pi}^{f}](https://render.githubusercontent.com/render/math?math=%5Ctextstyle+%5Cmathbf%7B%5CPi%7D%5E%7Bf%7D) matrix from HLP (2020). 
