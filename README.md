@@ -198,7 +198,7 @@ Third, we compute entries in ![\mathbf{\Upsilon}
 
 for when ![n=m](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+n%3Dm) and 0 otherwise. 
 
-
+The code for calibrating the value added share matrix is in [get_va_shares.py](get_va_shares.py). If the code is run successfully, you should observe a printed statement that proclaims ```Successfully calibrated the value added shares matrix!```. 
 
 
 
