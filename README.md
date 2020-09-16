@@ -65,7 +65,7 @@ where ![\mathbf{\iota}](https://render.githubusercontent.com/render/math?math=%5
 
 We note that this procedure is general for the ![N](https://render.githubusercontent.com/render/math?math=%5Ctextstyle+N) country case. However, we make some adjustments because we role up these expenditures into a rest of the world component. 
 
-The code for computing household expenditure shares is called [get_hh_shares.py](get_hh_shares.py). The code (generally) proceeds as follows:
+The code for computing household expenditure shares is called [get_hh_shares.py](Calibration/get_hh_shares.py). The code (generally) proceeds as follows:
 
 1. Download the 2014 WIOT from the WIOD website
 2. Extract household spending components by each region
