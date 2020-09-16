@@ -200,5 +200,15 @@ for when ![n=m](https://render.githubusercontent.com/render/math?math=%5Cdisplay
 
 The code for calibrating the value added share matrix is in [get_va_shares.py](get_va_shares.py). If the code is run successfully, you should observe a printed statement that proclaims ```Successfully calibrated the value added shares matrix!```. 
 
+### Calibrating Revenue Share of Intermediates
+
+The next matrix to calibrate is ![\mathbf{\Psi}^{x}
+](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPsi%7D%5E%7Bx%7D%0A) which contains the share of total revenue from intermediate spending on different inputs. The method for computing this matrix is similar to the procedure for computing intermediate input shares. As before, let ![\mathbf{X}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7BX%7D) be the intermediate transactions matrix. Furthermore, let ![\mathbf{PY}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7BPY%7D) be the vector of gross output for each country-sector. To compute each intermediate's contribution to total revenue in the row country-sector, we compute the following matrix
+
+![\mathbf{\Psi}^{x} = \left[\mathbf{X}^{'}\diag(\mathbf{PY})^{-1}\right]^{'}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPsi%7D%5E%7Bx%7D+%3D+%5Cleft%5B%5Cmathbf%7BX%7D%5E%7B%27%7D%5Cdiag%28%5Cmathbf%7BPY%7D%29%5E%7B-1%7D%5Cright%5D%5E%7B%27%7D)
+
+The code that performs these operations is in 
+
+
 
 
