@@ -90,3 +90,11 @@ With this, we perform a similar operation as before and calibrate the intermedia
 ![\mathbf{\Pi}^{x} = \left[\mathbf{X}diag\left(\mathbf{X}_{total}\right)\right]^{'}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPi%7D%5E%7Bx%7D+%3D+%5Cleft%5B%5Cmathbf%7BX%7Ddiag%5Cleft%28%5Cmathbf%7BX%7D_%7Btotal%7D%5Cright%29%5Cright%5D%5E%7B%27%7D)
 
 We note the transpose here is actually important. The entries in ![\mathbf{X}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7BX%7D) correspond to intermediate payments from the column country-sector to the row country-sector. In contrast, the intermediate shares matrix in HLP uses the opposite convention.  Hence, after computing the shares matrix, we need to transpose the matrix to make them consistent.
+
+The code for constructing the intermediate input shares matrix is given in [get_int_shares.py](get_hh_shares.py). In general, the code does the following:
+
+1. Extracts intermediate input transaction matrix for each region, i.e. China, USA, and ROW
+2. Collapse spending from other regions and ROW into a single region titled ROW.
+3. Compute the intermediate input shares matrix
+
+If the code runs successfully, you should see a statement print ```Successfully computed the expenditure share matrix!``` and the matrix ```Pi_x``` returned. 
