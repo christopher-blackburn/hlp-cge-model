@@ -129,4 +129,18 @@ and
 
 ![1-\alpha_j = \frac{w L_{nj}}{r K_{nj} + w H_{nj}}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+1-%5Calpha_j+%3D+%5Cfrac%7Bw+L_%7Bnj%7D%7D%7Br+K_%7Bnj%7D+%2B+w+H_%7Bnj%7D%7D)
 
+The code for computing the factor shares is in [get_fac_shares.py](get_fac_shares.py). The code proceeds as follows:
+
+1. Download the SEA and exchange rate data from the WIOD website
+  - Exchange rates are used to convert local currency into a common currency to aggregate regions into the ROW component
+2. Compute ![\alpha ](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Calpha+) and ![\eta ](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Ceta+) for each country-sector
+
+If the code runs successfully, you should see a few printed statements:
+
+1. ```Successfully downloaded SEA data for WIOD!``` --> The SEA data download was successful
+2. ```Successfully downloaded exchange rate data for WIOD!``` --> The exhange rate data download was successful
+3. ```Successfully calibrated factor shares!``` --> Factor shares were calibrated appropriately. 
+
+and the factor shares vectors will be return for each region, i.e. ![\mathbf{\alpha}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5Calpha%7D) and ![\mathbf{\eta}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5Ceta%7D) will be returned for China, ROW, and the USA. The vectors are given by ```chn_alpha_j```, ```row_alpha_j```, ```usa_alpha_j```, ```chn_eta_j```, ```row_eta_j```, and ```usa_eta_j```. It should be noted that we do not average these directly within the code. 
+
 
