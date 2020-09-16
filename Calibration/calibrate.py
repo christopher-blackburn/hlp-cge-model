@@ -542,8 +542,9 @@ def calibrate():
 
     print('Successfully calibrated final spending revenue shares!')
 
+    print('***MODEL CALIBRATED***')
     return [Pi_f, Pi_x, chn_alpha_j, chn_eta_j, row_alpha_j, row_eta_j, usa_alpha_j, usa_eta_j, Upsilon, Psi_x, Psi_f]
 
-Model = calibrate()
+
 
 
