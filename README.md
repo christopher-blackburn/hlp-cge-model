@@ -109,7 +109,7 @@ With this, we perform a similar operation as before and calibrate the intermedia
 
 We note the transpose here is actually important. The entries in ![\mathbf{X}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7BX%7D) correspond to intermediate payments from the column country-sector to the row country-sector. In contrast, the intermediate shares matrix in HLP uses the opposite convention.  Hence, after computing the shares matrix, we need to transpose the matrix to make them consistent.
 
-The code for constructing the intermediate input shares matrix is given in [get_int_shares.py](get_hh_shares.py). In general, the code does the following:
+The code for constructing the intermediate input shares matrix is given in [get_int_shares.py](Calibration/get_hh_shares.py). In general, the code does the following:
 
 1. Extracts intermediate input transaction matrix for each region, i.e. China, USA, and ROW
 2. Collapse spending from other regions and ROW into a single region titled ROW.
@@ -147,7 +147,7 @@ and
 
 ![1-\alpha_j = \frac{w L_{nj}}{r K_{nj} + w H_{nj}}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+1-%5Calpha_j+%3D+%5Cfrac%7Bw+L_%7Bnj%7D%7D%7Br+K_%7Bnj%7D+%2B+w+H_%7Bnj%7D%7D)
 
-The code for computing the factor shares is in [get_fac_shares.py](get_fac_shares.py). The code proceeds as follows:
+The code for computing the factor shares is in [get_fac_shares.py](Calibration/get_fac_shares.py). The code proceeds as follows:
 
 1. Download the SEA and exchange rate data from the WIOD website
   - Exchange rates are used to convert local currency into a common currency to aggregate regions into the ROW component
@@ -198,7 +198,7 @@ Third, we compute entries in ![\mathbf{\Upsilon}
 
 for when ![n=m](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+n%3Dm) and 0 otherwise. 
 
-The code for calibrating the value added share matrix is in [get_va_shares.py](get_va_shares.py). If the code is run successfully, you should observe a printed statement that proclaims ```Successfully calibrated the value added shares matrix!```. 
+The code for calibrating the value added share matrix is in [get_va_shares.py](Calibration/get_va_shares.py). If the code is run successfully, you should observe a printed statement that proclaims ```Successfully calibrated the value added shares matrix!```. 
 
 ### Calibrating Revenue Share of Intermediates
 
@@ -207,7 +207,7 @@ The next matrix to calibrate is ![\mathbf{\Psi}^{x}
 
 ![\mathbf{\Psi}^{x} = \left[\mathbf{X}^{'}\diag(\mathbf{PY})^{-1}\right]^{'}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPsi%7D%5E%7Bx%7D+%3D+%5Cleft%5B%5Cmathbf%7BX%7D%5E%7B%27%7D%5Cdiag%28%5Cmathbf%7BPY%7D%29%5E%7B-1%7D%5Cright%5D%5E%7B%27%7D)
 
-The code that performs these operations is in [get_psix_shares.py](get_psix_shares.py). If successfully computed, you should see the statement ```Successfully calibrated intermediate spending revenue shares!``` print on your screen. 
+The code that performs these operations is in [get_psix_shares.py](Calibration/get_psix_shares.py). If successfully computed, you should see the statement ```Successfully calibrated intermediate spending revenue shares!``` print on your screen. 
 
 
 
@@ -224,4 +224,4 @@ Hence, the entries in ![\mathbf{\Psi}^{f}
 ![\mathbf{\Psi}_{nj,m}^{f} = \frac{\pi_{m,nj}^{f}P_{m}\mathcal{F}_{m}}{P_{nj}Y_{nj}}
 ](https://render.githubusercontent.com/render/math?math=%5Ctextstyle+%5Cmathbf%7B%5CPsi%7D_%7Bnj%2Cm%7D%5E%7Bf%7D+%3D+%5Cfrac%7B%5Cpi_%7Bm%2Cnj%7D%5E%7Bf%7DP_%7Bm%7D%5Cmathcal%7BF%7D_%7Bm%7D%7D%7BP_%7Bnj%7DY_%7Bnj%7D%7D%0A)
 
-The code for computing this matrix is in [get_psif_shares.py](get_psif_shares.py). If successfully calibrated, you should see a statement ```Successfully calibrated final spending revenue shares!```. 
+The code for computing this matrix is in [get_psif_shares.py](Calibration/get_psif_shares.py). If successfully calibrated, you should see a statement ```Successfully calibrated final spending revenue shares!```. 
