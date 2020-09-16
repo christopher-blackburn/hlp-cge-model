@@ -1,4 +1,4 @@
-'''Download the 2014 WIOT from the WIOD Website'''
+'''This code calibrates the model and returns all matrices required for the simulation'''
 
 import pandas as pd 
 
