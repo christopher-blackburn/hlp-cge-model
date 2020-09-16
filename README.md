@@ -16,7 +16,7 @@ The next section goes into the production side of the economy.
 
 In the model, each country $n$ is populated with a representative household. The represenative household consumes final goods and supplies labor and capital to industries. The household's problem is given by
 
-$$\max_{\mathcal{F}_n,\lbrace H_{nj} \rbrace} \mathcal{F}_{n} - \sum_{j}H_{nj}^{1+ \frac{1}{\psi}}$$
+<img src="https://render.githubusercontent.com/render/math?math=\max_{\mathcal{F}_n,\lbrace H_{nj} \rbrace} \mathcal{F}_{n} - \sum_{j}H_{nj}^{1+ \frac{1}{\psi}}">
 
 subject to 
 $$P_{n}\mathcal{F}_n = \sum_{j}W_{nj}H_{nj} + R_{nj}K_{nj}$$
