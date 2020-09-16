@@ -16,6 +16,31 @@
   - [ ] Calibrate labor supply shocks 
 - [ ] Model improvements and extensions
 
+## Running the Model
+
+To execute the model, you will need to have access to Python 3 and the following packages:
+
+1. ``numpy``
+2. ``pandas``
+
+### Calibration 
+
+In order to calibrate the model, you will need to download and execute the file ```calibrate.py```. The script creates an instance of a function that can then be used to calibrate the model and collect the matrices required for the simulation. Here is an example of how to execute the calibration file. Note this is not the only way to execute the file. In Python 3, execute the following code
+
+``` import os 
+
+# Change to the directory with the calibration.py file
+os.chdir(path_to_file)
+
+# Import the calibration script
+from calibrate import calibrate
+
+# Execute the model
+M = calibrate()
+```
+You should see a myriad of statements highlighting different successful calibrations. If the model calibrates without error, you should see a statement ```***MODEL CALIBRATED***``` After the model has been successfully calibrated, the object ```M``` is a list containing the calibrated matrices in the model. This object will be referenced later. 
+
+
 
 ## About
 
