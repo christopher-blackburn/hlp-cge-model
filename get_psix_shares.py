@@ -61,3 +61,5 @@ diag_py = np.diag(np.array(py).flatten())
 
 # Compute the PsiX matrix
 Psi_x = np.transpose(np.dot(np.transpose(X),inv(diag_py)))
+
+print('Successfully calibrated intermediate spending revenue shares!')
