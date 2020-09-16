@@ -16,12 +16,18 @@ The next section goes into the production side of the economy.
 
 In the model, each country $n$ is populated with a representative household. The represenative household consumes final goods and supplies labor and capital to industries. The household's problem is given by
 
-<img src="https://render.githubusercontent.com/render/math?math=\max_{\mathcal{F}_n,\lbrace H_{nj} \rbrace} \mathcal{F}_{n} - \sum_{j}H_{nj}^{1+ \frac{1}{\psi}}">
+<img src=
+"https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmax_%7B%5Cmathcal%7BF%7D_n%2C%5Clbrace+H_%7Bnj%7D+%5Crbrace%7D+%5Cmathcal%7BF%7D_%7Bn%7D+-+%5Csum_%7Bj%7DH_%7Bnj%7D%5E%7B1%2B+%5Cfrac%7B1%7D%7B%5Cpsi%7D%7D" 
+alt="\max_{\mathcal{F}_n,\lbrace H_{nj} \rbrace} \mathcal{F}_{n} - \sum_{j}H_{nj}^{1+ \frac{1}{\psi}}">
 
 subject to 
-$$P_{n}\mathcal{F}_n = \sum_{j}W_{nj}H_{nj} + R_{nj}K_{nj}$$
 
-The consumption index $\mathcal{F}_{n}$ is defined  assumed to be constant elasticity of substition given by
+
+"https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+P_%7Bn%7D%5Cmathcal%7BF%7D_n+%3D+%5Csum_%7Bj%7DW_%7Bnj%7DH_%7Bnj%7D+%2B+R_%7Bnj%7DK_%7Bnj%7D" 
+alt="P_{n}\mathcal{F}_n = \sum_{j}W_{nj}H_{nj} + R_{nj}K_{nj}">
+
+The consumption index "https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathcal%7BF%7D_%7Bn%7D" 
+alt="\mathcal{F}_{n}"> is defined  assumed to be constant elasticity of substition given by
 
 $$\mathcal{F}_{n}= \left[\sum_j \sum_m \vartheta^{\frac{1}{\rho}}_{mj,n} \mathcal{F}_{mj,n}^{\frac{\rho-1}{\rho}} \right]^{\frac{\rho}{\rho-1}}$$
 
