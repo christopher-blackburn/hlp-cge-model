@@ -25,7 +25,7 @@ To execute the model, you will need to have access to ``Python 3``` and the foll
 
 ### Calibration 
 
-In order to calibrate the model, you will need to download and execute the file ```calibrate.py```. The script creates an instance of a function that can then be used to calibrate the model and collect the matrices required for the simulation. Here is an example of how to execute the calibration file. Note this is not the only way to execute the file. In Python 3, execute the following code
+In order to calibrate the model, you will need to download and execute the file ```calibrate.py``` ([found here](Calibration/calibrate.py). The script creates an instance of a function that can then be used to calibrate the model and collect the matrices required for the simulation. Here is an example of how to execute the calibration file. Note this is not the only way to execute the file. In Python 3, execute the following code
 
 ``` import os 
 
