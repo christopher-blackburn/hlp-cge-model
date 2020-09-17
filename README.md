@@ -250,3 +250,36 @@ Hence, the entries in ![\mathbf{\Psi}^{f}
 ](https://render.githubusercontent.com/render/math?math=%5Ctextstyle+%5Cmathbf%7B%5CPsi%7D_%7Bnj%2Cm%7D%5E%7Bf%7D+%3D+%5Cfrac%7B%5Cpi_%7Bm%2Cnj%7D%5E%7Bf%7DP_%7Bm%7D%5Cmathcal%7BF%7D_%7Bm%7D%7D%7BP_%7Bnj%7DY_%7Bnj%7D%7D%0A)
 
 The code for computing this matrix is in [get_psif_shares.py](Calibration/get_psif_shares.py). If successfully calibrated, you should see a statement ```Successfully calibrated final spending revenue shares!```. 
+
+
+## Calibrating Labor Supply Shocks
+
+Bonadio et al. (2020) applies the HLP model to study the propagation of COVID-19 shocks across international and domestic input-output linkages. To model the labor supply shock, the authors assume households allocate their time across occupations. That is, household preferences are formulated as 
+
+![\max_{\mathcal{F}_{n},\lbrace L_{nl} \rbrace} \mathcal{F}_{n} - \sum_{l=1}^{\mathcal{O}} \frac{1}{1+\frac{1}{\psi}}\left( \frac{L_{nl}}{\xi_{nl}}\right)^{1 + \frac{1}{\psi}}
+](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmax_%7B%5Cmathcal%7BF%7D_%7Bn%7D%2C%5Clbrace+L_%7Bnl%7D+%5Crbrace%7D+%5Cmathcal%7BF%7D_%7Bn%7D+-+%5Csum_%7Bl%3D1%7D%5E%7B%5Cmathcal%7BO%7D%7D+%5Cfrac%7B1%7D%7B1%2B%5Cfrac%7B1%7D%7B%5Cpsi%7D%7D%5Cleft%28+%5Cfrac%7BL_%7Bnl%7D%7D%7B%5Cxi_%7Bnl%7D%7D%5Cright%29%5E%7B1+%2B+%5Cfrac%7B1%7D%7B%5Cpsi%7D%7D%0A)
+
+Note the labor supply shifter ![\xi_{nl}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cxi_%7Bnl%7D) is indexed by occupation and region. Hence, the authors calibrate the labor supply shifter as follows 
+
+![\Delta \ln \xi_{nl}  = - \left(1-\omega_{l}\right) \times f\left(GRT_{n}\right)](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5CDelta+%5Cln+%5Cxi_%7Bnl%7D++%3D+-+%5Cleft%281-%5Comega_%7Bl%7D%5Cright%29+%5Ctimes+f%5Cleft%28GRT_%7Bn%7D%5Cright%29)
+
+where ![\omega_{l}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Comega_%7Bl%7D) is an occupation's telework capacity from [Dingel and Neiman (2020)](https://www.nber.org/papers/w26948.pdf). The GRT refers to the Government Response Tracker (see Bonadio et al. (2020) for more details). 
+
+In Footnote 12 of their [working paper](https://www.nber.org/papers/w27224.pdf), they note that the elasticity of substitution ![\kappa](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Ckappa) is set equal to 1 in the simulations. This implies the sectoral occupational shares are unaffected by the labor supply shock and the occupational share matrix ![\mathbf{\Pi}^{\mathcal{O}}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPi%7D%5E%7B%5Cmathcal%7BO%7D%7D) drops out of the first-order approximation. 
+
+Because of this, we elect to follow the approach of HLP and assume the representative household allocates labor across sectors rather than occupations. For the purpose of comparison, we formulate the representative household's preferences as 
+
+![\max_{\mathcal{F}_{n},\lbrace L_{nj} \rbrace} \mathcal{F}_{n} - \sum_{j=1} \frac{1}{1+\frac{1}{\psi}}\left( \frac{L_{nj}}{\xi_{nj}}\right)^{1 + \frac{1}{\psi}}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmax_%7B%5Cmathcal%7BF%7D_%7Bn%7D%2C%5Clbrace+L_%7Bnj%7D+%5Crbrace%7D+%5Cmathcal%7BF%7D_%7Bn%7D+-+%5Csum_%7Bj%3D1%7D+%5Cfrac%7B1%7D%7B1%2B%5Cfrac%7B1%7D%7B%5Cpsi%7D%7D%5Cleft%28+%5Cfrac%7BL_%7Bnj%7D%7D%7B%5Cxi_%7Bnj%7D%7D%5Cright%29%5E%7B1+%2B+%5Cfrac%7B1%7D%7B%5Cpsi%7D%7D)
+
+In this formulation, the labor supply shifter ![\xi_{nj}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cxi_%7Bnj%7D) is instead indexed by sector rather than occupation. Therefore, we calibrate the labor supply shifter as follows
+
+![\Delta \ln \xi_{nj} = -f\left(GRT_{n}\right)\sum_{l=1}^{\mathcal{O}} \pi_{lj}^{\mathcal{O}} \left(1-\omega_{l}\right) ](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5CDelta+%5Cln+%5Cxi_%7Bnj%7D+%3D+-f%5Cleft%28GRT_%7Bn%7D%5Cright%29%5Csum_%7Bl%3D1%7D%5E%7B%5Cmathcal%7BO%7D%7D+%5Cpi_%7Blj%7D%5E%7B%5Cmathcal%7BO%7D%7D+%5Cleft%281-%5Comega_%7Bl%7D%5Cright%29+)
+
+The term in the summation captures an industry's capacity to maintain normal operations during a lockdown as in Blackburn and Moreno-Cruz (2020). 
+
+
+
+
+
+
+
