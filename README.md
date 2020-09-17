@@ -1,5 +1,5 @@
 # bea-economic-model
-### Updated: 09/16/2020
+### Updated: 09/17/2020
 
 ## Current Tasks
 
@@ -11,8 +11,8 @@
   - [x] Calibrate ![\mathbf{\Psi}^{x}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPsi%7D%5E%7Bx%7D) (Revenue share of intermediate inputs)
   - [x] Calibrate ![\mathbf{\Psi}^{f}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPsi%7D%5E%7Bf%7D) (Revenue share of final demand)
 - [ ] Run and anlayze prototype simulations
-  - [ ] Solve the model for heterogeneous factor shares
-  - [ ] Solve the model for industry-specific labor supply shocks (as opposed to occupation specific)
+  - [x] Solve the model for heterogeneous factor shares
+  - [x] Solve the model for industry-specific labor supply shocks (as opposed to occupation specific)
   - [ ] Calibrate labor supply shocks 
 - [ ] Model improvements and extensions
 
@@ -304,8 +304,9 @@ Substituting the expressions for intermediate inputs and equilibrium employment 
 ![    \ln \mathbf{Y}_t = \left[\mathbf{I} - \frac{\psi}{1+\psi}\mathbf{\eta}\left(\mathbf{I}-\mathbf{\alpha}\right)\left(\mathbf{I} + \left(\mathbf{I} - \mathbf{\Pi}^{f}\otimes \mathbf{1}\right)\mathcal{P}\right) - \left(\mathbf{I} - \mathbf{\eta}\right)\left(\mathbf{I} + \left(\mathbf{I} - \mathbf{\Pi}^{x}\right)\mathcal{P}\right)\right]^{-1}\mathbf{\eta}\left(\mathbf{I}-\mathbf{\alpha}\right) \ln \mathbf{\xi}_t](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+++++%5Cln+%5Cmathbf%7BY%7D_t+%3D+%5Cleft%5B%5Cmathbf%7BI%7D+-+%5Cfrac%7B%5Cpsi%7D%7B1%2B%5Cpsi%7D%5Cmathbf%7B%5Ceta%7D%5Cleft%28%5Cmathbf%7BI%7D-%5Cmathbf%7B%5Calpha%7D%5Cright%29%5Cleft%28%5Cmathbf%7BI%7D+%2B+%5Cleft%28%5Cmathbf%7BI%7D+-+%5Cmathbf%7B%5CPi%7D%5E%7Bf%7D%5Cotimes+%5Cmathbf%7B1%7D%5Cright%29%5Cmathcal%7BP%7D%5Cright%29+-+%5Cleft%28%5Cmathbf%7BI%7D+-+%5Cmathbf%7B%5Ceta%7D%5Cright%29%5Cleft%28%5Cmathbf%7BI%7D+%2B+%5Cleft%28%5Cmathbf%7BI%7D+-+%5Cmathbf%7B%5CPi%7D%5E%7Bx%7D%5Cright%29%5Cmathcal%7BP%7D%5Cright%29%5Cright%5D%5E%7B-1%7D%5Cmathbf%7B%5Ceta%7D%5Cleft%28%5Cmathbf%7BI%7D-%5Cmathbf%7B%5Calpha%7D%5Cright%29+%5Cln+%5Cmathbf%7B%5Cxi%7D_t)
 
 
+### Model Solution with Heterogeneous Factor Shares
 
-
+HLP average the factor share parameters. However, the equilibrium solution and characterization of the matrices is general and does not require averaging. Instead, we can simply replace the elements of the facto share matrix with country-specific factor shares without re-solving the model. 
 
 
 
