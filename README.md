@@ -275,9 +275,29 @@ In this formulation, the labor supply shifter ![\xi_{nj}](https://render.githubu
 
 ![\Delta \ln \xi_{nj} = -f\left(GRT_{n}\right)\sum_{l=1}^{\mathcal{O}} \pi_{lj}^{\mathcal{O}} \left(1-\omega_{l}\right) ](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5CDelta+%5Cln+%5Cxi_%7Bnj%7D+%3D+-f%5Cleft%28GRT_%7Bn%7D%5Cright%29%5Csum_%7Bl%3D1%7D%5E%7B%5Cmathcal%7BO%7D%7D+%5Cpi_%7Blj%7D%5E%7B%5Cmathcal%7BO%7D%7D+%5Cleft%281-%5Comega_%7Bl%7D%5Cright%29+)
 
-The term in the summation captures an industry's capacity to maintain normal operations during a lockdown as in [Blackburn and Moreno-Cruz (2020)](https://www.dropbox.com/h?preview=Physical_Contact_Index_COVID19+(9).pdf). 
+The term in the summation captures an industry's capacity to maintain normal operations during a lockdown as in [Blackburn and Moreno-Cruz (2020)](https://www.dropbox.com/s/gtja41hnhgfzssf/Physical_Contact_Index_COVID19%20%289%29.pdf?dl=0). 
 
 ### Model Solution with Industry Labor Supply Shocks
+
+In this subsection, we solve the model using our specification of labor supply shocks. For a full proof, please see the companion paper as we omit certain details. We begin with the log-linearized intertermporal labor supply function given by 
+
+![    \ln \mathbf{L}_t^{s} = \psi\left(\ln \mathbf{W}_t - \left(\mathbf{\Pi}^{f} \otimes \mathbf{1}\right)\ln \mathbf{P}_t\right) + \left(1+\psi\right)\ln \mathbf{\xi}_t](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+++++%5Cln+%5Cmathbf%7BL%7D_t%5E%7Bs%7D+%3D+%5Cpsi%5Cleft%28%5Cln+%5Cmathbf%7BW%7D_t+-+%5Cleft%28%5Cmathbf%7B%5CPi%7D%5E%7Bf%7D+%5Cotimes+%5Cmathbf%7B1%7D%5Cright%29%5Cln+%5Cmathbf%7BP%7D_t%5Cright%29+%2B+%5Cleft%281%2B%5Cpsi%5Cright%29%5Cln+%5Cmathbf%7B%5Cxi%7D_t)
+
+We next solve for the log-linearized labor demand function in matrix notation which is given by
+
+![    \ln \mathbf{L}_{t}^{d} = \ln \mathbf{Y}_t + \ln \mathbf{P}_t - \ln \mathbf{W}_t](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+++++%5Cln+%5Cmathbf%7BL%7D_%7Bt%7D%5E%7Bd%7D+%3D+%5Cln+%5Cmathbf%7BY%7D_t+%2B+%5Cln+%5Cmathbf%7BP%7D_t+-+%5Cln+%5Cmathbf%7BW%7D_t)
+
+The labor market clearing condition implies that equilibrium employment is given by 
+
+![   \ln \mathbf{L}_t = \ln \mathbf{\xi}_t + \frac{\psi}{1+\psi}\ln \mathbf{Y}_t + \frac{\psi}{1+\psi}\left(\mathbf{I} - \mathbf{\Pi}^{f}\otimes\mathbf{1}\right)\ln\mathbf{P}_t](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle++++%5Cln+%5Cmathbf%7BL%7D_t+%3D+%5Cln+%5Cmathbf%7B%5Cxi%7D_t+%2B+%5Cfrac%7B%5Cpsi%7D%7B1%2B%5Cpsi%7D%5Cln+%5Cmathbf%7BY%7D_t+%2B+%5Cfrac%7B%5Cpsi%7D%7B1%2B%5Cpsi%7D%5Cleft%28%5Cmathbf%7BI%7D+-+%5Cmathbf%7B%5CPi%7D%5E%7Bf%7D%5Cotimes%5Cmathbf%7B1%7D%5Cright%29%5Cln%5Cmathbf%7BP%7D_t)
+
+In a similar fashion, the first-order condition for intermediate inputs is given by
+
+![    \ln \mathbf{X}_t = \ln \mathbf{Y}_t + \left(\mathbf{I} - \mathbf{\Pi}^{x}\right)\ln \mathbf{P}_t](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+++++%5Cln+%5Cmathbf%7BX%7D_t+%3D+%5Cln+%5Cmathbf%7BY%7D_t+%2B+%5Cleft%28%5Cmathbf%7BI%7D+-+%5Cmathbf%7B%5CPi%7D%5E%7Bx%7D%5Cright%29%5Cln+%5Cmathbf%7BP%7D_t)
+
+and the log-linearized production function is 
+
+
 
 
 
