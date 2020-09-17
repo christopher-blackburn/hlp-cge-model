@@ -275,7 +275,9 @@ In this formulation, the labor supply shifter ![\xi_{nj}](https://render.githubu
 
 ![\Delta \ln \xi_{nj} = -f\left(GRT_{n}\right)\sum_{l=1}^{\mathcal{O}} \pi_{lj}^{\mathcal{O}} \left(1-\omega_{l}\right) ](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5CDelta+%5Cln+%5Cxi_%7Bnj%7D+%3D+-f%5Cleft%28GRT_%7Bn%7D%5Cright%29%5Csum_%7Bl%3D1%7D%5E%7B%5Cmathcal%7BO%7D%7D+%5Cpi_%7Blj%7D%5E%7B%5Cmathcal%7BO%7D%7D+%5Cleft%281-%5Comega_%7Bl%7D%5Cright%29+)
 
-The term in the summation captures an industry's capacity to maintain normal operations during a lockdown as in Blackburn and Moreno-Cruz (2020). 
+The term in the summation captures an industry's capacity to maintain normal operations during a lockdown as in [Blackburn and Moreno-Cruz (2020)](https://www.dropbox.com/h?preview=Physical_Contact_Index_COVID19+(9).pdf). 
+
+### Model Solution with Industry Labor Supply Shocks
 
 
 
