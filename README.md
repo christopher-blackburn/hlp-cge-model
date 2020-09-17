@@ -263,7 +263,7 @@ Note the labor supply shifter ![\xi_{nl}](https://render.githubusercontent.com/r
 
 ![\Delta \ln \xi_{nl}  = - \left(1-\omega_{l}\right) \times f\left(GRT_{n}\right)](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5CDelta+%5Cln+%5Cxi_%7Bnl%7D++%3D+-+%5Cleft%281-%5Comega_%7Bl%7D%5Cright%29+%5Ctimes+f%5Cleft%28GRT_%7Bn%7D%5Cright%29)
 
-where ![\omega_{l}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Comega_%7Bl%7D) is an occupation's telework capacity from [Dingel and Neiman (2020)](https://www.nber.org/papers/w26948.pdf). The GRT refers to the Government Response Tracker (see Bonadio et al. (2020) for more details). 
+where ![\omega_{l}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Comega_%7Bl%7D) is an occupation's telework capacity from [Dingel and Neiman (2020)](https://www.nber.org/papers/w26948.pdf). The GRT refers to the Government Response Tracker (see [Hale et al. (2020)](https://covidtracker.bsg.ox.ac.uk/about-api) for more details). 
 
 In Footnote 12 of their [working paper](https://www.nber.org/papers/w27224.pdf), they note that the elasticity of substitution ![\kappa](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Ckappa) is set equal to 1 in the simulations. This implies the sectoral occupational shares are unaffected by the labor supply shock and the occupational share matrix ![\mathbf{\Pi}^{\mathcal{O}}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPi%7D%5E%7B%5Cmathcal%7BO%7D%7D) drops out of the first-order approximation. 
 
