@@ -297,7 +297,11 @@ In a similar fashion, the first-order condition for intermediate inputs is given
 
 and the log-linearized production function is 
 
+![    \ln \mathbf{Y}_t = \mathbf{\eta}\left(\mathbf{I} - \mathbf{\alpha}\right)  \ln \mathbf{L}_t + \left(\mathbf{I}-\mathbf{\eta}\right)\ln \mathbf{X}_t](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+++++%5Cln+%5Cmathbf%7BY%7D_t+%3D+%5Cmathbf%7B%5Ceta%7D%5Cleft%28%5Cmathbf%7BI%7D+-+%5Cmathbf%7B%5Calpha%7D%5Cright%29++%5Cln+%5Cmathbf%7BL%7D_t+%2B+%5Cleft%28%5Cmathbf%7BI%7D-%5Cmathbf%7B%5Ceta%7D%5Cright%29%5Cln+%5Cmathbf%7BX%7D_t)
 
+Substituting the expressions for intermediate inputs and equilibrium employment into the log-linearized production, we can solve for the log-deviation in output as 
+
+![    \ln \mathbf{Y}_t = \left[\mathbf{I} - \frac{\psi}{1+\psi}\left(\mathbf{I}-\mathbf{\alpha}\right)\mathbf{\eta}\left(\mathbf{I} + \left(\mathbf{I} - \mathbf{\Pi}^{f}\otimes \mathbf{1}\right)\mathcal{P}\right) - \left(\mathbf{I} - \mathbf{\eta}\right)\left(\mathbf{I} + \left(\mathbf{I} - \mathbf{\Pi}^{x}\right)\mathcal{P}\right)\right]^{-1}\left(\mathbf{I}-\mathbf{\alpha}\right)\mathbf{\eta} \ln \mathbf{\xi}_t](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+++++%5Cln+%5Cmathbf%7BY%7D_t+%3D+%5Cleft%5B%5Cmathbf%7BI%7D+-+%5Cfrac%7B%5Cpsi%7D%7B1%2B%5Cpsi%7D%5Cleft%28%5Cmathbf%7BI%7D-%5Cmathbf%7B%5Calpha%7D%5Cright%29%5Cmathbf%7B%5Ceta%7D%5Cleft%28%5Cmathbf%7BI%7D+%2B+%5Cleft%28%5Cmathbf%7BI%7D+-+%5Cmathbf%7B%5CPi%7D%5E%7Bf%7D%5Cotimes+%5Cmathbf%7B1%7D%5Cright%29%5Cmathcal%7BP%7D%5Cright%29+-+%5Cleft%28%5Cmathbf%7BI%7D+-+%5Cmathbf%7B%5Ceta%7D%5Cright%29%5Cleft%28%5Cmathbf%7BI%7D+%2B+%5Cleft%28%5Cmathbf%7BI%7D+-+%5Cmathbf%7B%5CPi%7D%5E%7Bx%7D%5Cright%29%5Cmathcal%7BP%7D%5Cright%29%5Cright%5D%5E%7B-1%7D%5Cleft%28%5Cmathbf%7BI%7D-%5Cmathbf%7B%5Calpha%7D%5Cright%29%5Cmathbf%7B%5Ceta%7D+%5Cln+%5Cmathbf%7B%5Cxi%7D_t)
 
 
 
