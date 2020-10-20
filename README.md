@@ -330,7 +330,7 @@ where the influence matrix is given by
 The final step is to solve for the change in GDP using a standard accounting framework. That is, the log-deviation in GDP is given by the accounting equation
 
 ![\begin{equation*}
-\ln V_{nt} = \sum_{j} \frac{P_{nj}Y_{nj}}{V_{nj}}\eta_{nj}\left(1-\alpha_{nj}\right)\ln L_{njt}
+\ln V_{nt} = \sum_{j} \frac{P_{nj}Y_{nj}}{V_{n}}\eta_{nj}\left(1-\alpha_{nj}\right)\ln L_{njt}
 \end{equation*}
 ](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cbegin%7Bequation%2A%7D%0A%5Cln+V_%7Bnt%7D+%3D+%5Csum_%7Bj%7D+%5Cfrac%7BP_%7Bnj%7DY_%7Bnj%7D%7D%7BV_%7Bnj%7D%7D%5Ceta_%7Bnj%7D%5Cleft%281-%5Calpha_%7Bnj%7D%5Cright%29%5Cln+L_%7Bnjt%7D%0A%5Cend%7Bequation%2A%7D%0A)
 
