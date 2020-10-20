@@ -13,7 +13,8 @@
 - [ ] Run and anlayze prototype simulations
   - [x] Solve the model for heterogeneous factor shares
   - [x] Solve the model for industry-specific labor supply shocks (as opposed to occupation specific)
-  - [ ] Calibrate labor supply shocks 
+  - [x] Calibrate labor supply shocks 
+  - [] Simulate model to obtain preliminary results
 - [ ] Model improvements and extensions
 
 ## Running the Model
@@ -276,6 +277,14 @@ In this formulation, the labor supply shifter ![\xi_{nj}](https://render.githubu
 ![\Delta \ln \xi_{nj} = -f\left(GRT_{n}\right)\sum_{l=1}^{\mathcal{O}} \pi_{lj}^{\mathcal{O}} \left(1-\omega_{l}\right) ](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5CDelta+%5Cln+%5Cxi_%7Bnj%7D+%3D+-f%5Cleft%28GRT_%7Bn%7D%5Cright%29%5Csum_%7Bl%3D1%7D%5E%7B%5Cmathcal%7BO%7D%7D+%5Cpi_%7Blj%7D%5E%7B%5Cmathcal%7BO%7D%7D+%5Cleft%281-%5Comega_%7Bl%7D%5Cright%29+)
 
 The term in the summation captures an industry's capacity to maintain normal operations during a lockdown as in [Blackburn and Moreno-Cruz (2020)](https://www.dropbox.com/s/gtja41hnhgfzssf/Physical_Contact_Index_COVID19%20%289%29.pdf?dl=0). 
+
+To calibrate the labor supply shocks, we need to acquire several data sources. The first data source is the government response tracker (GRT) dataset. The dataset is available via direct download from a Github repository. The second dataset is the Occupational Employment Statistics (OES) dataset. We use the 2019 OES data to get a more accurate read on the composition of occupational employment across industries. The third dataset is the telework dataset from Dingel and Neiman (2020). We use the crosswalk file between ONET and BLS codes available on their Github replication page. The fourth dataset is the 2017 Penn World Table. We use the Penn World Table to aggregate the GRT stringency index into a ROW component. 
+
+The code for downloading these datasets is found in [get_grt_data.py](Calibration/get_grt_data.py). With this data, we calibrate the labor supply shocks given by the relevant formula above. The labor supply shocks are calibrated in the the code [get_labor_shocks.py](Calibration/get_labor_shocks.py). It is important to note that since we are primarily interested in the effects in the first quarter of 2020, we set labor supply shocks in the United States and ROW to zero. We plan to explore variations where these shocks are non-zero in future iterations. In the initial iteration, we compute two version of the stringency index for China: (i) the average stringency index for 2020Q1, and (ii) the maximum stringency index for 2020Q1. 
+
+### Government Response Tracker
+
+One area where we need to think about in more detail is how we use the GRT stringency index. In the Bonadio et al. (2020) paper, they use the GRT index along with a curve fitting procedure to create a cardinal measure from the stringency index. They note the curve fitting adjusts the dispersion of the index, but the average stringecy is relatively unchanged. They provide the mean and standard deviation from the fitted lognormal distribution to the Industrial Production data.
 
 ### Model Solution with Industry Labor Supply Shocks
 
