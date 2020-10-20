@@ -315,7 +315,7 @@ The code for downloading these datasets is found in [get_grt_data.py](Calibratio
 
 One area where we need to think about in more detail is how we use the GRT stringency index. In the Bonadio et al. (2020) paper, they use the GRT index along with a curve fitting procedure to create a cardinal measure from the stringency index. They note the curve fitting adjusts the dispersion of the index, but the average stringecy is relatively unchanged. They provide the mean and standard deviation from the fitted lognormal distribution to the Industrial Production data.
 
-### Model Solution with Industry Labor Supply Shocks
+## Model Solution with Industry Labor Supply Shocks
 
 In this subsection, we solve the model using our specification of labor supply shocks. For a full proof, please see the companion paper as we omit certain details. We begin with the log-linearized intertermporal labor supply function given by 
 
