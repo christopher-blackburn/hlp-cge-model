@@ -14,7 +14,7 @@
   - [x] Solve the model for heterogeneous factor shares
   - [x] Solve the model for industry-specific labor supply shocks (as opposed to occupation specific)
   - [x] Calibrate labor supply shocks 
-  - [] Simulate model to obtain preliminary results
+  - [x] Simulate model to obtain preliminary results
 - [ ] Model improvements and extensions
 
 ## Running the Model
@@ -40,6 +40,35 @@ from calibrate import calibrate
 M = calibrate()
 ```
 You should see a myriad of statements highlighting different successful calibrations. If the model calibrates without error, you should see a statement ```***MODEL CALIBRATED***``` After the model has been successfully calibrated, the object ```M``` is a list containing the calibrated matrices in the model. This object will be referenced later. 
+
+### Simulation
+
+To run the simulation, you need to download the ```calibrate.py``` and ```simulation.py``` ([here](Simulation/simulation.py) files. You need both files since the ```simulation.py``` files uses the calibration function created in ```calibrate.py``` to build the model. (In the future, we may decide to update these files to avoid having to download multiple files.) In the ```simulation.py``` file, you will need to update the line ```os.chdir('/Users/cblackburn/Downloads')``` to the directory where you downloaded the calibration file. Otherwise, the code will not execute properly. The details of the simulation file are discussed in more detail below, and thus we do not elaborate on them here. Again, you will need to execute the code in the Python 3 environment. The following code example will return the simulation results for the selected values of the parameters
+
+```
+import os 
+
+# Change to the directory with the simulation.py and calibration.py files
+os.chdir(path_to_file)
+
+# Setup some values for the parameters in the model
+rho = 2.75
+epsilon = 0.5
+psi = 2
+
+# Run the simulation
+results = run_simulation(rho,epsilon,psi)
+```
+
+The function ```run_simulation(rho,epsilon,psi)``` returns a ```list``` object that returns the following results in order:
+
+1. The log-deviation in (gross) output for each country-sector pair assuming the <i>mean</i> stringency index for 2020Q1 in China
+2. The log-deviation in (gross) output for each country-sector pair assuming the <i>maximum</i> stringency index for 2020Q1 in China
+3. The log-deivation in employment for each country-sector pair assuming the <i>mean</i> stringency index for 2020Q1 in China
+4. The log-deviation in employment for each country-sector pair assuming the <i>maximum</i> stringency index for 2020Q1 in China
+5. The impact on US GDP for 2020Q1 assuming the <i>mean</i> stringency index for 2020Q1 in China
+6. The impact on US GDP for 2020Q1 assuming the <i>max</i> stringency index for 2020Q1 in China
+
 
 
 
