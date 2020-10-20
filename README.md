@@ -26,7 +26,7 @@ To execute the model, you will need to have access to ```Python 3``` and the fol
 
 ### Calibration 
 
-In order to calibrate the model, you will need to download and execute the file ```calibrate.py``` ([found here](Calibration/calibrate.py). The script creates an instance of a function that can then be used to calibrate the model and collect the matrices required for the simulation. Here is an example of how to execute the calibration file. Note this is not the only way to execute the file. In Python 3, execute the following code
+In order to calibrate the model, you will need to download and execute the file ```calibrate.py``` ([found here](Calibration/calibrate.py)). The script creates an instance of a function that can then be used to calibrate the model and collect the matrices required for the simulation. Here is an example of how to execute the calibration file. Note this is not the only way to execute the file. In Python 3, execute the following code
 
 ``` import os 
 
@@ -43,7 +43,7 @@ You should see a myriad of statements highlighting different successful calibrat
 
 ### Simulation
 
-To run the simulation, you need to download the ```calibrate.py``` and ```simulation.py``` ([here](Simulation/simulation.py) files. You need both files since the ```simulation.py``` files uses the calibration function created in ```calibrate.py``` to build the model. (In the future, we may decide to update these files to avoid having to download multiple files.) In the ```simulation.py``` file, you will need to update the line ```os.chdir('/Users/cblackburn/Downloads')``` to the directory where you downloaded the calibration file. Otherwise, the code will not execute properly. The details of the simulation file are discussed in more detail below, and thus we do not elaborate on them here. Again, you will need to execute the code in the Python 3 environment. The following code example will return the simulation results for the selected values of the parameters
+To run the simulation, you need to download the ```calibrate.py```([here](Calibration/calibrate.py)) and ```simulation.py``` ([here](Simulation/simulation.py)) files. You need both files since the ```simulation.py``` files uses the calibration function created in ```calibrate.py``` to build the model. (In the future, we may decide to update these files to avoid having to download multiple files.) In the ```simulation.py``` file, you will need to update the line ```os.chdir('/Users/cblackburn/Downloads')``` to the directory where you downloaded the calibration file. Otherwise, the code will not execute properly. The details of the simulation file are discussed in more detail below, and thus we do not elaborate on them here. Again, you will need to execute the code in the Python 3 environment. The following code example will return the simulation results for the selected values of the parameters
 
 ```
 import os 
