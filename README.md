@@ -10,7 +10,7 @@
   - [x] Calibrate ![\mathbf{\Upsilon}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CUpsilon%7D) (value added shares)
   - [x] Calibrate ![\mathbf{\Psi}^{x}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPsi%7D%5E%7Bx%7D) (Revenue share of intermediate inputs)
   - [x] Calibrate ![\mathbf{\Psi}^{f}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cmathbf%7B%5CPsi%7D%5E%7Bf%7D) (Revenue share of final demand)
-- [ ] Run and anlayze prototype simulations
+- [x] Run and anlayze prototype simulations
   - [x] Solve the model for heterogeneous factor shares
   - [x] Solve the model for industry-specific labor supply shocks (as opposed to occupation specific)
   - [x] Calibrate labor supply shocks 
