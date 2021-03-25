@@ -1,6 +1,8 @@
 # bea-economic-model
 ### Updated: 10/20/2020
 
+### The model herein is a Python implementation of the model presented in Huo, Levchencko, and Pandalai-Nayar (2020) with some modifications. 
+
 ## Current Tasks
 
 - [x] Calibrate the Model to WIOD for 3 regions and 56 sectors
