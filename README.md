@@ -1,4 +1,4 @@
-# bea-economic-model
+# hlp-cge-model
 ### Updated: 10/20/2020
 
 ### The model herein is a Python implementation of the model presented in Huo, Levchencko, and Pandalai-Nayar (2020) with some modifications. 
