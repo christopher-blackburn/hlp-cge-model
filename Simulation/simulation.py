@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd 
 
 # Change to the directory with the calibration file
-os.chdir('/Users/cblackburn/Downloads')
+os.chdir('Downloads')
 
 # Import the calibration function 
 from calibrate import calibrate
