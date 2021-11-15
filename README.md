@@ -74,14 +74,9 @@ The function ```run_simulation(rho,epsilon,psi)``` returns a ```list``` object t
 
 
 
-## About
-
-This project contains the code for constructing and using the BEA economic model. The model is based on the paper by Huo, Levchenko, and Pandalai-Nayar (2020) and adapted to leverage the internal data source of the Bureau of Economic Analysis. 
-
-
 ## Introduction 
 
-This is a technical document that describes the data and method for estimating the BEA economic model. The model is based off of Huo, Levchenko, and Pandalai-Nayar's (2020) "International Comovement in the Global Production Network." For the rest of the document, we will refer to this paper as HLP. As we proceed with the document, we highlight the components of the model and the data that goes along with these various components. We note that all equations were generated using this [website](https://tex-image-link-generator.herokuapp.com/). 
+This is a technical document that describes the data and method for estimating the model based off of Huo, Levchenko, and Pandalai-Nayar's (2020) "International Comovement in the Global Production Network." For the rest of the document, we will refer to this paper as HLP. As we proceed with the document, we highlight the components of the model and the data that goes along with these various components. We note that all equations were generated using this [website](https://tex-image-link-generator.herokuapp.com/). 
 
 The technical document proceeds as follows. The first section highlights the consumption side of the economy. We present the economic environment as given in HLP and the corresponding data requirements. For the initial version of this document, in which there will more than likely be several iterations, we start by presenting the data used as given in HLP.
 
