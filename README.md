@@ -171,7 +171,7 @@ If the code runs successfully, you should see a statement print ```Successfully 
 
 ### Calibrating Factor Shares
 
-With the intermediate shares matrix calibrated, we next calibrate the factor shares in the Cobb-Douglas top-level production function. For this calibration, HLP use the KLEMS dataset. One might wonder why HLP decide to use KLEMS rather than WIOD. For the BEA model, we instead use the WIOD socioeconomic accounts (SEA) to calibrate the factor shares. First, the SEA's industry definitions match those in the WIOD. Generally, the KLEMS datasets do not match on a one-to-one basis. Second, the regional coverage of the SEA's are complete, whereas the KLEMS database does not cover all the regions included in the WIOD. 
+With the intermediate shares matrix calibrated, we next calibrate the factor shares in the Cobb-Douglas top-level production function. For this calibration, HLP use the KLEMS dataset. One might wonder why HLP decide to use KLEMS rather than WIOD. For our model, we instead use the WIOD socioeconomic accounts (SEA) to calibrate the factor shares. First, the SEA's industry definitions match those in the WIOD. Generally, the KLEMS datasets do not match on a one-to-one basis. Second, the regional coverage of the SEA's are complete, whereas the KLEMS database does not cover all the regions included in the WIOD. 
 
 Before discussing the calibration, we first introduce the theory that motivates the calibration. If you are familiar with the Cobb-Douglas production function and its parameters, you can move on. Otherwise, the following derivations may prove to be insightful. The top-level production function for a firm is Cobb-Douglas and given by
 
